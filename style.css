@@ -312,8 +312,51 @@ table {
   width: 97.5%;
 }
 
-/* remove margins from every first child */
-.span1:first-of-type, .span2:first-of-type, .span3:first-of-type, .span4:first-of-type, .span5:first-of-type, .span6:first-of-type, .span7:first-of-type, .span8:first-of-type, .span9:first-of-type, .span10:first-of-type, .span11:first-of-type, .span12:first-of-type {
+.span1:first-of-type {
+  margin-left: 0;
+}
+
+.span2:first-of-type {
+  margin-left: 0;
+}
+
+.span3:first-of-type {
+  margin-left: 0;
+}
+
+.span4:first-of-type {
+  margin-left: 0;
+}
+
+.span5:first-of-type {
+  margin-left: 0;
+}
+
+.span6:first-of-type {
+  margin-left: 0;
+}
+
+.span7:first-of-type {
+  margin-left: 0;
+}
+
+.span8:first-of-type {
+  margin-left: 0;
+}
+
+.span9:first-of-type {
+  margin-left: 0;
+}
+
+.span10:first-of-type {
+  margin-left: 0;
+}
+
+.span11:first-of-type {
+  margin-left: 0;
+}
+
+.span12:first-of-type {
   margin-left: 0;
 }
 

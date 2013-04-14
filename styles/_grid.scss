@@ -50,14 +50,9 @@ $offsetSlug: offset !default;
   }
 }
 
-/* remove margins from every first child */
-.span1:first-of-type {
-  margin-left: 0;
-}
-
 @for $i from 1 through $numCols {
   .#{$classSlug}#{$i}:first-of-type {
-    @extend .span1:first-of-type;
+    margin-left: 0;
   }
 }
 
