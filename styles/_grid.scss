@@ -45,16 +45,18 @@ $offsetSlug: offset !default;
       margin-left: percentage($gutter);
       width: $xwidth - $gutter * 50;
       // because the gutter is a percentage width, the var is exprssed as a decimal, this number multiplied by the decimal provides the optimum collumn width.
-   
+      &:first-of-type{
+          margin-left:0;
+      }
     }
   }
 }
 
-@for $i from 1 through $numCols {
-  .#{$classSlug}#{$i}:first-of-type {
-    margin-left: 0;
-  }
-}
+//@for $i from 1 through $numCols {
+//  .#{$classSlug}#{$i}:first-of-type {
+//    margin-left: 0;
+//  }
+//}
 
 /* @end */
 /* @group no margin */

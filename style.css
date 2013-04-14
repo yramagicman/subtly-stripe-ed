@@ -301,61 +301,22 @@ table {
   margin-left: 5%;
   width: 22.5%;
 }
+.span3:first-of-type {
+  margin-left: 0;
+}
 
 .span9 {
   margin-left: 5%;
   width: 72.5%;
+}
+.span9:first-of-type {
+  margin-left: 0;
 }
 
 .span12 {
   margin-left: 5%;
   width: 97.5%;
 }
-
-.span1:first-of-type {
-  margin-left: 0;
-}
-
-.span2:first-of-type {
-  margin-left: 0;
-}
-
-.span3:first-of-type {
-  margin-left: 0;
-}
-
-.span4:first-of-type {
-  margin-left: 0;
-}
-
-.span5:first-of-type {
-  margin-left: 0;
-}
-
-.span6:first-of-type {
-  margin-left: 0;
-}
-
-.span7:first-of-type {
-  margin-left: 0;
-}
-
-.span8:first-of-type {
-  margin-left: 0;
-}
-
-.span9:first-of-type {
-  margin-left: 0;
-}
-
-.span10:first-of-type {
-  margin-left: 0;
-}
-
-.span11:first-of-type {
-  margin-left: 0;
-}
-
 .span12:first-of-type {
   margin-left: 0;
 }
