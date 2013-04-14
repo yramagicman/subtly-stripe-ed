@@ -1,0 +1,50 @@
+//font size declarations for responsive design are in their respective files. This file contains allignment classes and image size definitions
+/*image definitions and usefull classes*/
+img {
+  max-width: 100%;
+  margin: 1em;
+}
+figure, .cap {
+  font-size: 0.8em;
+  display: block;
+  margin: 0 1em 0;
+}
+
+.cap img, figcaption {
+  display: block;
+  margin-bottom: 0;
+}
+.cleared {
+  clear: both;
+}
+em {
+	font-family: DejaVuSansOblique, Arial, sans-serif;
+}
+strong {
+	font-family: DejaVuSansBold, Arial, sans-serif;
+}
+strong em,
+em strong {
+	font-family: DejaVuSansBoldOblique, Arial, sans-serif;
+}
+/*links*/
+a {
+//  &:link {
+    color: $links;
+    @include transition(all, 300ms, ease);
+//  }
+  &:visited {
+//    color: $visited;
+  }
+  &:hover, &:active {
+    color: $hover;
+//  @include transition(all, 300ms, ease);
+  }
+}
+.post-title a{
+    color: darken($textColor, 20%);
+    text-decoration:none;
+    &:hover{
+        color: $hover;
+    }
+}

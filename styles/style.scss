@@ -1,0 +1,73 @@
+
+/*! Theme Name: Subtly Stripe-ed
+Theme URI: https://github.com/yramagicman/wordpressHTML5
+Description: Description
+Version: 1.0
+Author: Jonathan Gilson
+Author URI: http://www.perpetuallycreative.com
+Tags: silver, white, orange, blue, light, one-column, two-columns, right-sidebar, flexible-width, custom-menu, editor-style, full-width-template, sticky-post
+License:GPL
+License URI: http://www.gnu.org/licenses/gpl.html*/
+
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+@import "_mixins.scss";
+/* @group normalize */
+@import "_normalize.scss";
+/* @end */
+/* @group grid */
+@import "_grid.scss";
+
+/* @end */
+/* @group type and images */
+@import "_type-and-images.scss";
+/* @end */
+/* @group mobile layout */
+@media only screen and (min-width: 320px) {
+  /* Styles */
+  @import "_mobile_layout.scss";
+}
+
+/* @end*/
+/* @group tablet layout */
+@media only screen and (min-width: 768px) {
+  /* @group navigation */
+  @import "_nav.scss";
+  /* @end */
+  /* Styles */
+  @import "_tablet_layout.scss";
+  .mobileOnly {
+    display: none;
+  }
+}
+
+/* @end */
+/* @group desktop layout */
+
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+  @import "_desktop_layout.scss";
+}
+
+/* @end */
+/* @group forms */
+@import "_forms.scss";
+/* @end */
+/* @group required */
+@import "_formats.scss";
+/* @end */
+/* @group required */
+@import "_required.scss";
+/* @end */
+/* @group utility classes */
+@import "_utility_classes.scss";
+
+/* @end */
+.lt-ie9 {
+  .mobileOnly {
+    display: none;
+  }
+}
+@media print{
+  @import "_print.scss";
+}

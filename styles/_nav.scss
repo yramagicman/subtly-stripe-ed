@@ -1,0 +1,84 @@
+$subMenuWidth: 12em;
+$transitionDuration: 500ms;
+//$bgColor: ;
+nav .menu {
+  clear: both;
+  overflow: visible;
+  height:50px;
+  ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* override mobile */
+    position:relative;
+    top:0;
+  }
+  li {
+    position: relative;
+    float: left;
+    a {
+      display: block;
+      padding: 5px 17px;
+      float: left;
+      text-decoration:none;
+      border-top:5px solid transparent;
+      margin-top:-5px;
+      @include transition(all, $transitionDuration, ease);
+      color:$links;
+      &:hover{
+          border-top: 5px solid #dc8900;
+          color:$links;
+      }
+    }
+  }
+  .children, .sub-menu {
+    width: $subMenuWidth;
+    margin: 0;
+    padding: 0;
+    display:none;
+    & li {
+      float: none;
+      clear: both;
+      margin-left:-1.6em;
+      padding: 0;
+      width: $subMenuWidth;
+       a{
+        border: 1px solid darken($bgColor, 2%);
+        width: $subMenuWidth;
+        background: lighten($bgColor, 3%);
+        margin-top:-1px;
+        &:hover{
+          background: $bgColor;
+        }
+      }
+    }
+  }
+  .pad{
+    position:absolute;
+    top:2em;
+    z-index: 100;
+    left:-99999em;
+    padding: 0 1.5em 1em 2.5em;
+    opacity:0;
+     @include transition( opacity, $transitionDuration, ease);
+  }
+  li:hover .pad{
+      left:-1em;
+      opacity:1;
+  }
+  .pad li .pad{
+    left:-99999em;
+    top: -1em;
+    padding-top:1em;
+    z-index:11;
+    opacity:0;
+  }
+  .pad li:hover .pad{
+      left: $subMenuWidth - 1.25;
+      opacity:1;
+  }
+}
+.footer-menu-list{
+  overflow:hidden;
+}

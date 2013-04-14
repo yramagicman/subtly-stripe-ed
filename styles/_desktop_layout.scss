@@ -1,0 +1,34 @@
+/*start layout */
+$pageWidth: $desktopPageWidth;
+header {
+    line-height:100px;
+  .blogTitle{
+      float:left;
+  }
+  .tagLine{
+      float:right;
+
+  }
+}
+.col {
+//  min-width: 0;
+//  position: relative;
+  //  margin-left: percentage($gutter);
+}
+
+
+
+//@include establish-baseline();
+.container {
+  width: $pageWidth;
+  overflow: visible;
+}
+.content{
+  overflow: visible;
+}
+.body{
+//    max-width:7px;
+//    margin-left:; 
+}
+
+/* end layout */

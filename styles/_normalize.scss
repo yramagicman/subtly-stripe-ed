@@ -1,0 +1,552 @@
+// =============================================================================
+// Normalize.scss settings
+// =============================================================================
+// So since we're using Sass to compile our Normalize, 
+// We can have some actual settings here, so we don't do more than we have to
+
+// Set to false if you want to drop support for IE6 and IE7
+// Notice: setting to false might render some elements
+// slightly differently than when set to true
+$legacy-ie: false !default;
+
+// Set the default font family here so you don't have to override it later
+$font-family: DejaVuSansBook, Arial, sans-serif !default;
+$heading-font-family: JustOldFashionRegular, Georgia, Serif !default;
+
+//fonts
+$base-font-size: 16px;
+$base-line-height: $base-font-size * 1.7;
+$font-size: $base-font-size;
+
+$normalize-headings: true !default;
+$h1-font-size: 2em !default;
+$h2-font-size: 1.5em !default;
+$h3-font-size: 1.17em !default;
+$h4-font-size: 1em !default;
+$h5-font-size: 0.83em !default;
+$h6-font-size: 0.75em !default;
+
+$h1-margin: 0.67em 0 !default;
+$h2-margin: 0.83em 0 !default;
+$h3-margin: 1em 0 !default;
+$h4-margin: 1.33em 0 !default;
+$h5-margin: 1.67em 0 !default;
+$h6-margin: 2.33em 0 !default;
+
+//Color scheme
+$textColor: #444444;
+$bgColor: rgb(241, 241, 241);
+$action: #3a70da;
+$links: rgb(30, 30, 140);
+$hover: #dc8900;
+$visited: rgb(140, 30, 30);
+$borderColor: black;
+
+//Gradients
+$startColor: lighten($bgColor, 5%);
+$endColor: darken($bgColor, 20%);
+$startActionColor: lighten($action, 15%);
+$endActionColor: darken($action, 5%);
+
+// =============================================================================
+// HTML5 display definitions
+// =============================================================================
+
+// Corrects block display not defined in IE6/7/8/9 & FF3
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+// Corrects inline-block display not defined in IE6/7/8/9 & FF3
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  @if $legacy-ie {
+    *display: inline;
+    *zoom: 1;
+  }
+}
+
+// 1. Prevents modern browsers from displaying 'audio' without controls
+// 2. Remove excess height in iOS5 devices
+
+audio:not([controls]) {
+  display: none;
+  // 1
+  height: 0;
+  // 2
+}
+
+// Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+// Known issue: no IE6 support
+
+//[hidden] {
+//  display: none;
+//}
+
+// =============================================================================
+// Base
+// =============================================================================
+
+// 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+//    http://clagnut.com/blog/348/#c790
+// 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
+//    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+
+html {
+  @if $legacy-ie {
+    font-size: 100%;
+    // 1
+  }
+  -webkit-text-size-adjust: 100%;
+  // 2
+  -ms-text-size-adjust: 100%;
+  // 2
+}
+
+// Addresses font-family inconsistency between 'textarea' and other form elements.
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: $font-family;
+}
+
+//@include establish-baseline(); //done in media query sheets.
+// Addresses margins handled incorrectly in IE6/7
+
+body {
+  margin: 0;
+  background: $bgColor url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAH0CAIAAACy2JpsAAAPJ2lDQ1BJQ0MgUHJvZmlsZQAAeAGVWAk0lN/fv7Paxr4vZciaNWuE7FKyk12WwWTMjLGThBSJVMgWTSpbIWuIUkmWsrSQJQpFUiIi2/sM9fud97znf/7nvefMcz/3e7/Lvc/nee73+Q4AbNMeZDIBDgAIIAZTrE30sQ6OTli6IcAAGAEXEAJYD68gsp6lpRmk8h/a8lsAo029kqP5YkXgJSZ4zlcIkglKY27PDP+D0V8xCwUKCABMFhJw+e5gXRr23MG2NBwWTA6GdPxo2MvPwxvCJyEsS7G1NoBwMYRZfHfwfRr23MHPaTjUy5dmOwgAmoPojScCQPcVwjreuCAvaJoW19s7yCsAwmmQ3mZAAAnyzwZhIOVFpkC2bDSfcrT7AvVQC1QEwPABAKy4f2UeDQBQswCQlvpXtmcOAP52AHKy/pUtWm/fKxhPT5CPstK2OxhGHwDU+62tRQlobZcB2Li0tbV2Y2troxAAxAgAjwheIZTQbV1ogbAXAPy38c6e/1ggIHIgghFoZAiani6dQYSRihFhrmfVYcvj4Oe8ws3Ek8snzn9TUEIobze3cBD2q6jrngFxK4lOKV3pFhlV2Vy57wr2iq1KaspUVWa1aPVJjaOaJQe+aZvpFOvS6+H0HxoKGUUavzukZup4uNQMHHUwL7eEWbla37UFdrb2ucfmHDWcTjqXuQy4wdxljh/zOOVJ9XrqPe3D5KvgZ4uPO3HTv5OwQOQhqZNtA0mUzKC64N6Qr2H04VIRppG4qKiTudGVp57GjJ7+EYeKFzgjn6Bz1vycWyIpKfZ8QvLVC/kpRamVF5vSnl/qvzxwZTj9Q8Z05verS1lrOSAX5G7mbeXDCxAFq9cnqG03ygoTbvrcOnxbroi1aK64veRmaWzZ8Tvad/nvLpX3VNyujLhnXiVWtV7dW5NXS6zTrWevf3+/tCGsUb8J0/T2QV6zV4t0y7eHVY+CW9Vbfz9+8CTiqdrTxbaKZ4R26fbp57c73Dp5Onu6krr1u1dflL/07hHqedOb0qfft9h//ZXRq8+vE96IvWl76z2AGigaNBmcfnd+SH7ozXDYiMDIw1Hv9wzv747ZjP0ev/nB/MPKx8KJoxMrk7embD7BP1V99prmnn42E/Vl35ep2byvNnOYueff4r8fnAfzsz9KFvCLqj/5fn5cur0c8ctmRWJldrX5d/4aZV1zA7mxutm05bW1BfFPj+xEJ9JjGZqYXDGLLLlsB9hHOMlc6zzn+ET4awT1hDp2mwl3iziKDovZiL+UNJV6uFdJplROUD5BYWmfs1KzipTqabWR/QYaOZrftYy0s3W+6O7TO63fYchqZGd8zeSTqeLhgCPFZp/MJS38LAutJmywts52GfbdDihHbacA5wyXJtcxd8RxKY/Dnj5ecd5U3AOfQd8VPO8JFX9bAiXgApFKqiV3BI5TloLRITyhkmGa4RYRLpE+UZEnY6LjT12OyTydHVsYVxRfdKYoofhsybniRGrS9fPZyWkXklISUmMvnkojX/K+7HjFKt0kQytT6apEFm82Ons5ZyZ3NK/jWkl+fIHHdS0qP3XlxrvC+ptXbxFvmxZJFCOLP5a0ll4vi7pjd1e+nK58suJxZf49StWRaskaWM1g7d26pPrj99UaMA0fG2uaUh94Nau1MLSMQk/BmVa7x+KPl548eXqlDfdMvZ2+/e1zagepU6eLqetNd/4L/EvVHmTP697sPtd+bP/Yq7TX+q+X35S9dR/gGugajH6n+G5qKHfYcgQ18mCU8l7q/cjYpXGj8bUPVR/xE9iJgcnkKd2p5U+Vn32nhaffzaR9OTQLn234GjgnPffxW/53x3nu+Rc/EhcMFjYXG3+GLaksfVuu+EVckV35snrrt+cadm10PW/DaZNn8+WWP41/OBIhh9RFOaND6ZLpbzA0MjYzFWLymO+wNLH2sc1yAE52LlFuKe55niU+wM8qICwoL6S1y3q3m7Atlk9EUFR8j6rYAXEDCQtJR6nj0vZ7uWTYZDnkuOR5FbgVefcJKO1W5lMeVKlVrVarVq/af0+jQrP8QJlWkTZVJ+9gpm6yXrR+gIGDoanRfmMxExaTX4c+mHYerjlCNbt4NMr8hIWDpYGVjDWH9arNhG23XZV91rEYB19HBydNZ2EXlMuMa7dbpful40Eezp6aXnxeK96DuPs+mb5kP2u87An0iQ/+LYS8gCiiNUmaDCePBNZSUoIIwXoh3CEzoc1h6eGUiCORklGoqMmTj6Opp2JjTpw+FCsRB48bi285cz0h6qzLOa1EgcSlpJfni5MTL/im6KXyp/682J9WfunsZfcrmulc6XMZ7ZkFV0OzrLJlchA5Q7nVeSnXcPlaBZwFX64/pF69EVhodlP85vqt/tslRfHFziWKpajS4bLqO6l38eUHK3grlitH77VWlVYn1HjX6tftrvtV/+L+jYbIRosm0aafD9qb81qCH5o9Enu03jrwuPxJ6lNim8UzlXaR55wd9B3rnb+61l/AXmJ6xHsN+nz6L75qev37re7A+cHxIdsR1GjSGGb82sfYSZmpoc85Mw2zF+Zw331+3FmsXmr9Nfr7yHr85ika/zu5j5YT0GoApOQDcAwHwFEpAM4+hlKdCAACJgBYMgNgqwHgi8oAXjgAYFQT8Cd/QIYwgAD0gAXwAGGwF6gBQ2ADvEEIOAcdtdWgG0yCTRg/TA1mDSPBUmEVsF7YIpwPrgPHwS/Bm+BTCA7EQQQBkYvoQqwjFZAeyAxkFwqB0kXFoJpQK2g1dBC6Gr1Ep04XQddCj6I3o8+gn2LQYEhgeMMozhjK2MG0mymIqQODxYRj+phlmfOYN1hcWVpYsazxrNNsFmzV7LvYz7EvcLhx9HIe5Kzg2sOVwy3AfY1HlKeUV4m3ie8Q3yD/Cf51gTRBScFmITuhmV0Ju0V2Nws7C29gqSKmIj9Fs/bo7fkhRhW3lkBK1Er6SglLjUhf3mstwy3zRjZbzkNeWv6HQovixX3HlZSV6ZRHVFpUM9TC1J3262iIaqI1vx54p9Wp3aRz52C+brpesn68QaxhglGS8QWT1EM5po2HZ814jtqZJ1s8sly11rCJt+225z7m5lDhBHN2cKl3E3ZPOP7F09brFc7Ep8VPF9/pb0WYJIaSuQNrghxCkKF14fhI4ajP0eUx0bFm8YJn5s72Jzacz7uQnHomLeoyKd0vMzgrM2fkmkbBRercTePbJSX0Za532yrFqs7XLNQ7NNQ94G4JfzT6RKstq32507y77OV6n92r0jdrgyZDGSNj75s+MExYTe3/jJ+pmK2Z65rnWtD4qbQcsdL6m7qBpD0/f/hHAwzgAAJADCiAA+AQOAZ8QRhIAnmgErSBEfATxgKThhnCjsOiYXmwB7BROICLwQ/DyfBMeAt8GsGF0EMQEdcQLxBbSCUkDpmD7EMxogxQ0ahG1Cp6PzoM3UQH6Izokuj66YXo/ehrGRAMNgy3GNYYLRhvM24xOTHVYTgxZEwPswJzOvMaixdLF6sKaz4bhi2CbZrdkb2bQ5ejnlOBs4hLlIvKLc5dyqPM08xryvuGD8e3yn9RQEygWdBBcEEoZdfeXZ278cJMwvewziJ0InWi3ns497SLxYiri89LlEp6S0lIzUqX7g2VMZLFyL6Xq5aPV3BSVNvHtW9R6bVyvUqh6nm1CHXCfncNK03DA/u1NLUP6Ggd1NbV1zPVtzJwNwwySjTOM6k41Gn6+4iqGeHoHfNpSxErT+sbNot22vZnj/U7CjsRndtcRdxOu496qHtmeTPgSD4DfofwD/3lCMVEMVJhoAylKHhfyMMwi/D3kcEn2aMrYuxOr8blntFNmD9XlOSUzHqhLzUrzfXyrisjGbVX07NjcrOvlRe0UocLv93mLlYptbsTWX6t8lnVcq10vXvDxaYnzeuPdB7HPr3/bLNDs+vsi+e93P2419Vv19+ZDBeMzo+bfrw2+eOz1cz12bVvx+YfLoouJf2a++2yPrzNP+3tZwCcAAsxrw/xToJYLwF9EOMCMH2YPywT9hS2BJeCu8FL4ZMIUYQH4gZiCimDJCMbUXSoINQztACaiG6nE6WLphum16IvYJBlyGCEMZIYx5hsmNox2pgaZmXmcRYPlklWP9bvbOHsCPY0DixHDacp5zjXSe5d3I94/Hk5eR/ykfjF+IcErghaCDEKPdt1drexML1wDzZXxF/0wB6mPR/EmsQzJAIlTaTkpNmlf+2dkOmVbZWrk7+lQFUs2JevVKBcqFKpWqfWoT6yf14TeYAP4s5V5/TBm7q9egsG4oYuRhnGPSabpurQ98wNsyFzLgsLyxirVhu0rYXdVfshBxnHYKfHLnyuQW6vjkt7xHvOeNvgan0F/S7gN/wJhAmiA+l1oA2lO9g85HWYc/h4pH/UWnRKjNjpxjiz+LGEiHOCic3nnZK3Uu5edL6EvlyWbp/JfLUx2zpnIS85X79gnnqr0POW9O3l4ubSS3cI5UaVQve+Vz+pza8nNxxt4nvwuaX2UchjySdv2xLblZ93dfpAuSHm5WpvYN/kK6vXzW+5BnCDdUOIYaOR6NGU93FjBeNtH6YmGCZ5JhenPn76NQ2bofvCOgub7f6aP5f97fL3c/NBPxwWpBZmFqt/Xl2KXHb4pbrCuvJp9fpvpzXRtYX1zo2yzXoa/zv10vY5wGhAIpAoWDOD/1bcbWv/Py4BhBCoJtturNAVgw823a7/IPzUh2JsDfVQrQQGiZ7mFlDPAaUkAVyQkc0fLOuDNzaFMBsk1yEHW9Js+SBsHulnewzCLBD2OeFx2PIPDiYSzGl1LQ8kj/PGGRpBmGab5U86QouFgXAxjmj3139NUKjNX51n3h6GRyAdIUjnbaSfgfkf/QVgBgygzIgFXtAbQoB+FIAHHdCIAjwAEZKPb8/RpEEgGJKFgHBIQoDGgRDGQxkVB83s2IdAchwkpQBjSJMCnbU4IPcnwv+NYw9lYJrf/6xB805yx8dRAqp8QrNIEZr2foplijOK61C8HX9H/omIg1b719NOdM+/45df67/+Y2Hwzz7/+jDeXofvX+0/nuWAz/YeQrf35w8+QWsNoK3lH09gp/aG7iRAQzzk7aWh+0cptO5/tWBcOFSXA2BAIkdQ8L5+wVg96J8HHNaAFEAOCcZRZLGmRC95WaySoqIqTe9/ABVAbK/zwe7YAAAHFklEQVR4Ae2YC3LjRgxE48/9D+pDrNMwoAaI+RAzSuJyPKxaCWLjDTBNiNT65ePj46/H8fb29gjl/c+fP5+fnzzTqq8TbU5CNbhd9ZZEVYH3SIG3SauMNz1uHUp7ccNWSdQzeIM0eI8UeJsUOHmAUzxu13XDNq6ZwRskGhR4jwT4nki14OXlRXf++ur7wpmsapK+QlN5RCb1nfCtt5HUfq2rDRJVBd4jBd4mBW53grN63K7rVyJds1sSVQ3eINGdwHukwNukVcabHpV9PnKlXzdslcQqNp4g8WH0fRipUjleanzsfpNwXo+oypBEOGrInqvv2pKuuuq8G7ZKoimDN0g0K/AeKfA2aZXxpsfqnLhhqyTq/dQJi7O56rwbtkqi6rtWBhlbaJ3vqj90wi5PSQzN0p3I3I63BCyR7icjVeDoZEtO1KfuYZenZOoWNWPZVvUJa7U5CdXc3phNcQf/9kiA7+g2tlecapA4fM/40JJfOfbSqt87YaPp03Yn6sUtZLdXO247qRc4abgK8UK0qrvdanMSqsEbpOyxu8/bmmpE/qXfTkI0LKm+ZyQl7Xbmn5owu+m3kxC3PVKl7VZL+4wf43W5DAmSooaPsX6rXuCWjHCrututNiehGrxByi7anWBJHDivx2RdSN45suskkt/5ZMOH/3TCrOe9ORF4jwQo/5fEG4/k31y1L4bCIONFap1Pql+nVLMl2R0CVQ3eILGEwHukgt45+0Ggx826jzR5r+yT+VjXy66SWMXgDRKw3D1B4pXfEAY4iWOiXoYEqXEj+DifMN/zKol1HV6qqR0ZnEjdJ3rRY6TKnqHFbMTx40SF5J2jTks+yst7Vmfa3bpeNq96R6KqwRukwXskYJswjiQD9QLrIuBJBqr6nmNSJDXuqg6nVbXmhIRkv0nS1Z5/H6hK5USmmhMVkneOhdac566WyVh2reZXv9bzBolOZUhaEme4nYkq32QcTI0buXXhchtYIlHSf5N0J4wnGWiP2qwZ1tW4l5Eq8EhTeKK+TrTbdX3PSOXEa83kX6v6YLeaLqGvXdUnLKammnEQkEZVYGhRpqbLTdTvmzA3rN4td2rwBokl5AaIOYmGxXiuPjVhvmfdCV553E6uw223XAVBVzW4qxEeqV6ZqalbntcgqgLHhaOm2RP18iNu9Wp726skOjJ4g8SmBN4jFfTO8RnN4ECgx3xd/4MDshWj4Qx0oVb1srEgsrukrkLV4A0SS9hTkkvqqnGtGCf18qBTLS7UklH1Pa+SWNfhikMsqx0ZnEgmaTBSBW61uNWJKn9xjXWARfJG3Sfjwms1/4HfYWhbN0ljGOiOJur/asLipcbOuy7gfGfCiiRg/5979FZjvKJmXCvGUPNsElMyfkwk1nW41eYkVIdjanIoSoipGhzLUiMzUgUeaQpP1Keekv6rN3WrBXmSQWzH9tzVuOeRKvBIU3ii/tbfYXEMlvz7ofcwm21MQtp5/DhSOxMGzxKpo8ZXqnnC6iQy7YvRroozaarbdS8w+6mQyHF4lQTsPx/bJiHz6KoOa15Kiu0gIanedqvNSagOp1VvSRQzeIM0eI8UeJv0thHhqOxTM/GKqm7YKgne4A3SYTaj/cSPKY4eSeVYNmqKTdTLDXCJxNJu2CqJjp66h/nzeWJMkvBR2/S224zbM98H257jxeSW2PZIzUNSJ5F5GZIlUmD845HmZNSt5kN1eJXEEgZvkAbvkQJvk942ovZI66YEqG4YtGhvS7aqw60WS3VVg7sa4ZFqT8m2SZIIRqq3HbOL8ffBl/+gFLtl2ve1/VTlcw/jFbx+PXE6jbd+VcztrsalRqrAI03hifob72H+Yz0ZQ6u7tunJp74YB04W3318yrAfeuv18eyOYXy4IiGN8MWwpM1JqA6vkmjE4A3S4D1S4G3S20aE49YhTdNXVHXDooA4ddRVHY5lW7KrGtzVWG2k/sbfYe427akHB6579ZX5Gw37vsfN5e8k8UuPa5HuJ63ql6rV4lXvqgZ3NcIjVeCRpvBE/df+WsG2NUj+4aQb1mqx4a56uVS3pWIClvPKUSjGBy4a9Ug7hj2cKL4fw4pGPdKOYQ8niu8/1DD7vR0fDthwej6MVNnzSFPbJupTT8nZs6rtX3vh6w+9VKdtXsFacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAXHsJpPzDqG0YpacAyr+cSsYxitqAVPGfY31kbxELkOFNgAAAAASUVORK5CYII=) repeat-x;
+  color: $textColor;
+}
+
+$base-font-size: 16px;
+$base-line-height: $base-font-size * 1.7;
+$font-size: $base-font-size;
+
+//line11
+
+@include establish-baseline;
+
+// =============================================================================
+// Links
+// =============================================================================
+
+// 1. Addresses outline displayed oddly in Chrome
+// 2. Improves readability when focused and also mouse hovered in all browsers
+//    people.opera.com/patrickl/experiments/keyboard/test
+
+a {
+  // 1
+  &:focus {
+    outline: thin dotted;
+  }
+  // 2
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+// Addresses font sizes and margins set differently in IE6/7
+// Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
+
+@if $normalize-headings == true {
+  h1 {
+    font-size: $h1-font-size;
+    margin: $h1-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+  h2 {
+    font-size: $h2-font-size;
+    margin: $h2-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+  h3 {
+    font-size: $h3-font-size;
+    margin: $h3-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+  h4 {
+    font-size: $h4-font-size;
+    margin: $h4-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+  h5 {
+    font-size: $h5-font-size;
+    margin: $h5-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+  h6 {
+    font-size: $h6-font-size;
+    margin: $h6-margin;
+    font-family: $heading-font-family;
+    text-shadow: 1px 1px 1px white;
+  }
+}
+
+// Addresses styling not present in IE7/8/9, S5, Chrome
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+// Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+
+b,
+strong {
+  font-weight: bold;
+}
+
+@if $legacy-ie {
+  blockquote {
+    margin: 1em 40px;
+  }
+}
+
+// Addresses styling not present in S5, Chrome
+
+dfn {
+  font-style: italic;
+}
+
+// Addresses styling not present in IE6/7/8/9
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+// Addresses margins set differently in IE6/7
+@if $legacy-ie {
+  p,
+  pre {
+    margin: 1em 0;
+  }
+}
+
+// Corrects font family set oddly in IE6, S4/5, Chrome
+// en.wikipedia.org/wiki/User:Davidgothberg/Test59
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  @if $legacy-ie {
+    _font-family: "courier new", monospace;
+  }
+  font-size: 1em;
+}
+
+// Improves readability of pre-formatted text in all browsers
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+// 1. Addresses CSS quotes not supported in IE6/7
+// 2. Addresses quote property not supported in S4
+
+// 1
+@if $legacy-ie {
+  q {
+    quotes: none;
+  }
+}
+
+// 2
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+small {
+  font-size: 75%;
+}
+
+// Prevents sub and sup affecting line-height in all browsers
+// gist.github.com/413930
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+// =============================================================================
+// Lists
+// =============================================================================
+
+// Addresses margins set differently in IE6/7
+@if $legacy-ie {
+  dl,
+  menu,
+  ol,
+  ul {
+    margin: 1em 0;
+  }
+}
+
+@if $legacy-ie {
+  dd {
+    margin: 0 0 0 40px;
+  }
+}
+
+// Addresses paddings set differently in IE6/7
+@if $legacy-ie {
+  menu,
+  ol,
+  ul {
+    padding: 0 0 0 40px;
+  }
+}
+
+// Corrects list images handled incorrectly in IE7
+
+nav, .sidebar {
+  ul,
+  ol {
+    list-style: none;
+    clear: both;
+    @if $legacy-ie {
+      list-style-image: none;
+    }
+  }
+}
+
+// =============================================================================
+// Embedded content
+// =============================================================================
+
+// 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+// 2. Improves image quality when scaled in IE7
+//    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+
+img {
+  border: 0;
+  // 1
+  -ms-interpolation-mode: bicubic;
+  // 2
+}
+
+// Corrects overflow displayed oddly in IE9
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// =============================================================================
+// Figures
+// =============================================================================
+
+// Addresses margin not present in IE6/7/8/9, S5, O11
+
+figure {
+  margin: 0;
+}
+
+// =============================================================================
+// Forms
+// =============================================================================
+
+// Corrects margin displayed oddly in IE6/7
+@if $legacy-ie {
+  form {
+    margin: 0;
+  }
+}
+
+// Define consistent border, margin, and padding
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+// 1. Corrects color not being inherited in IE6/7/8/9
+// 2. Corrects text not wrapping in FF3 
+// 3. Corrects alignment displayed oddly in IE6/7
+
+legend {
+  border: 0;
+  // 1
+  padding: 0;
+  white-space: normal;
+  // 2
+  @if $legacy-ie {
+    *margin-left: -7px;
+    // 3
+  }
+}
+
+// 1. Corrects font size not being inherited in all browsers
+// 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+// 3. Improves appearance and consistency in all browsers
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  // 1
+  margin: 0;
+  // 2
+  vertical-align: baseline;
+  // 3
+  @if $legacy-ie {
+    *vertical-align: middle;
+    // 3
+  }
+}
+
+// Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+
+button,
+input {
+  line-height: normal;
+  // 1
+}
+
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+//    and `video` controls
+// 2. Corrects inability to style clickable 'input' types in iOS
+// 3. Improves usability and consistency of cursor style between image-type
+//    'input' and others
+// 4. Removes inner spacing in IE7 without affecting normal text inputs
+//    Known issue: inner spacing remains in IE6
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  // 2
+  cursor: pointer;
+  // 3
+  @if $legacy-ie {
+    *overflow: visible;
+    // 4
+  }
+}
+
+// Re-set default cursor for disabled elements
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+// 1. Addresses box sizing set to content-box in IE8/9
+// 2. Removes excess padding in IE8/9
+// 3. Removes excess padding in IE7
+//    Known issue: excess padding remains in IE6
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  // 1
+  padding: 0;
+  // 2
+  @if $legacy-ie {
+    *height: 13px;
+    // 3
+    *width: 13px;
+    // 3
+  }
+}
+
+// 1. Addresses appearance set to searchfield in S5, Chrome
+// 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+// 3. Removes inner padding and search cancel button in S5, Chrome on OS X
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  // 1
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  // 2
+  box-sizing: content-box;
+  &::-webkit-search-decoration, &::-webkit-search-cancel-button {
+    // 3
+    -webkit-appearance: none;
+  }
+}
+
+// Removes inner padding and border in FF3+
+// www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+
+button, input {
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+// 1. Removes default vertical scrollbar in IE6/7/8/9
+// 2. Improves readability and alignment in all browsers
+
+textarea {
+  overflow: auto;
+  // 1
+  vertical-align: top;
+  // 2
+}
+
+// =============================================================================
+// Tables
+// =============================================================================
+
+// Remove most spacing between table cells
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
