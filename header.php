@@ -9,14 +9,6 @@
 <title>
 <?php wp_title();?>
 </title>
-<script src="helium/helium.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-	window.addEventListener('load', function(){
-		
-    // helium.init();
-
-	}, false);
-</script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width">
 <?php wp_head(); ?>
