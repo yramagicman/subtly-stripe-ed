@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	window.addEventListener('load', function(){
 		
-    helium.init();
+    // helium.init();
 
 	}, false);
 </script>

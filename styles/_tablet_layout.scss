@@ -4,7 +4,7 @@
   $pageWidth: $ipadPageWidthPortrait;
   .container {
     width: $pageWidth;
-    margin: auto;
+//    margin: auto;
   }
   //nav ul {
 //    margin: 0 auto;
@@ -51,6 +51,7 @@ header {
 .container {
   width: $pageWidth;
   overflow:visible;
+  padding:0;
 }
 .col{
   min-width:0;
