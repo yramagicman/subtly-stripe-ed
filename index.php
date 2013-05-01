@@ -17,7 +17,7 @@
           <?php the_excerpt(); ?>
         </article>
         <nav class="post-nav">
-		<?php wp_link_pages( ); ?>
+        <?php wp_link_pages( ); ?>
               </nav>
         <!--end article-->
         <aside class="cats">
@@ -35,9 +35,9 @@
       <?php edit_post_link('Edit this entry?','',''); ?>
       </small>
       <?php } ?>
-      
+
       <?php endwhile; else: ?>
-		<article class="post">Whoops, you broke the internet. You'll find that the back button or the search bar might fix the problem.</article>
+        <article class="post">Whoops, you broke the internet. You'll find that the back button or the search bar might fix the problem.</article>
       <?php endif; ?>
       <div class="navigation">
         <div class="alignleft">

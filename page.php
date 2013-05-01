@@ -4,7 +4,7 @@
     <div id="padding" class="padding">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <div id="post-wrap" <?php post_class(); ?>>
-        
+
         <!--end meta-->
         <article class="post-content">
           <?php the_content(); ?>
@@ -22,20 +22,20 @@
         </aside>
       </div>
       <!--end tags-->
-      
+
       <?php if ( current_user_can('edit_post', get_the_ID()) ) { ?>
       <small class="editlink">
       <?php edit_post_link('Edit this entry?','',''); ?>
       </small>
       <?php } ?>
-      
+
       <div class="comments clearfix">
       <?php if (function_exists('wp_list_comments')): ?>
       <!-- WP 2.7 and above -->
       <?php comments_template('', true); ?>
-      
+
       <?php endif; ?>
-      
+
       </div>
       <!--end comments-->
       <div class="navigation">
@@ -47,7 +47,7 @@
         </div>
       </div>
       <?php endwhile; else: ?>
-		<article class="post">Whoops, you broke the internet. You'll find that the back button or the search bar might fix the problem.</article>
+        <article class="post">Whoops, you broke the internet. You'll find that the back button or the search bar might fix the problem.</article>
       <?php endif; ?>
     </div>
     <!--end padding-->
