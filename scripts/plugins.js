@@ -1,4 +1,4 @@
-(function () { //jQuery function that adds a pad around menus 
+(function () { //jQuery function that adds a pad around menus
     'use strict';
     var x, jq;
     jq = jQuery.noConflict();
@@ -16,5 +16,5 @@
         x.wrap('<div class="pad">');
         jq('.sub-menu').show();
     }
-   
+
 })(); // end menus
