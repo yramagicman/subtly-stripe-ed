@@ -17,14 +17,14 @@
 <a href="#content" class="visuallyHidden">Skip To Content</a>
 <div id="container" class="container">
   <header class="col span12-no-margin">
-    <hgroup class="head-text">
+    <span class="head-text">
       <h1 id="blogTitle" class="blogTitle">
         <a href="<?php echo home_url(); ?>"><?php bloginfo('name');?></a>
       </h1>
       <h1 id="tagLine" class="tagLine">
         <?php bloginfo('description');?>
       </h1>
-    </hgroup>
+    </span>
   </header>
 <nav id="nav"><?php wpHTML5_header_menu(); ?></nav>
   <a href="#nav" class="mobileOnly shownav">Show Navigation</a>
